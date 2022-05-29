@@ -1,6 +1,6 @@
 const router = require('express').Router();
-const homePage = require('./homePage');
+const dashboard = require('./dashboard');
 
-router.use('/', homePage);
+router.use('/', dashboard);
 
 module.exports = router;
