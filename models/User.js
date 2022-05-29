@@ -17,11 +17,11 @@ User.init(
             unique: true,
         },
         email: {
-            type: DataTypes.email,
+            type: DataTypes.STRING,
             allowNull: false,
         },
         password: {
-            type: DataTypes.password,
+            type: DataTypes.STRING,
             allowNull: false,
         }
     },
@@ -31,4 +31,6 @@ User.init(
         underscored: true,
         modelName: 'users',
     }
-)
+);
+
+module.exports = User;
