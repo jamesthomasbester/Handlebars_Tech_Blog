@@ -13,6 +13,7 @@ app.use(session({
     secret: 'Super secret secret',
     cookie: {},
     resave: false,
+    maxAge: 60000,
     saveUninitialized: true,
     store: new SequelizeStore({
         db: sequelize

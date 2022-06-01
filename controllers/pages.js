@@ -1,10 +1,13 @@
 const router = require('express').Router();
 
+const list = ['1', '2']
+
 router.get('/', async (req, res) => {
-    await req.session.save(() =>  {req.session.logged_In = false});
+    await req.session.save(() =>  {});
     
     res.render('dashboard', {
-        logged_In: req.session.logged_In
+        logged_In: req.session.logged_In,
+        list: list
     })
 });
 router.get('/login', (req, res) => res.render('login'));
