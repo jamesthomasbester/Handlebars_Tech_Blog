@@ -7,10 +7,14 @@ async function handlePost(){
         const post = await fetch('/api/posts/', {
             method: 'POST',
             body: JSON.stringify({ title, body }),
-            headers: {
-                
-            }
-        })
+            headers: { 'content-type': 'application/json' }
+        });
+
+        if(post.ok) {
+            console.log('success')
+        }else{
+            console.log('failed')
+        }
     }
 }
 

@@ -9,7 +9,13 @@ router.get('/', (req, res) =>{
 router.post('/', async (req, res) => {
     if(req.body){
         try{
-            res.status(200).json(moment().format('YYYY-MM-DD hh:mm:ss'));
+            const postData = Post.create({ 
+                post_title: req.body.title,
+                post_body: req.body.body,
+                user_id: req.session.user_id,
+                post_time: moment().format('YYYY-MM-DD hh:mm:ss')
+             })
+            res.status(200).json(postData);
         }catch(err){
             console.error(err);
         }
