@@ -7,11 +7,12 @@
     <textarea class="form-control" placeholder="Leave a comment here" id="post-body" style="height: 100px"></textarea>
     <label for="floatingTextarea2">Post Content</label>
   </div>
-  <button class="btn btn-outline-secondary comment" id="submit-comment" type="button">Post</button>
+  <button class="btn btn-outline-secondary comment" id="submit-post" type="button">Post</button>
 </div>
 {{#each post}}
 <div class="card">
-  <h5 class="card-header">{{post_title}}</h5>
+  <h5 class="card-header">{{user.name}}</h5>
+  <p class="subtext">{{post_time}}</p>
   <div class="card-body">
     <h5 class="card-title">{{post_title}}</h5>
     <p class="card-text">{{post_body}}</p>

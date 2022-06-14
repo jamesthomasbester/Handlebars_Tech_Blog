@@ -14,3 +14,8 @@
 .card-body{
     margin: 0 40px;
 }
+
+.subtext{
+    color:darkgray;
+    font-size:.8rem;
+}

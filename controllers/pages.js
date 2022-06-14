@@ -1,8 +1,6 @@
 const router = require('express').Router();
 const { Post, User } = require('../models');
 
-const list = ['1', '2']
-
 router.get('/', async (req, res) => {
     const posts = await Post.findAll({
         include: [
