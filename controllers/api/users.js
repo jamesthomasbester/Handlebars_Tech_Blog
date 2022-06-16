@@ -52,7 +52,7 @@ router.post('/logout', (req, res) => {
     req.session.logged_in = false;
     if(req.session.logged_In){
         req.session.destroy(() => res.status(200).end());
-        
+        res.redirect('/');
     }else{ res.status(400).end()}
 });
 

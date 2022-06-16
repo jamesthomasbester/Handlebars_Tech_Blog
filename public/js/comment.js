@@ -4,28 +4,44 @@ async function handlePost(){
     const body = $('#post-body').val();
 
     if(title && body ){
-c
+        const post = await fetch('/api/posts/', {
+            method: 'POST',
+            body: JSON.stringify({ title, body }),
+            headers: { 'content-type': 'application/json' }
+        });
 
         if(post.ok) {
             await window.location.reload()
+        }else if(post.status(400)){
+            
+        }
+        else{
+            console.log('failed')
+        }
+    }
+}
+
+async function handleComment(e){
+    console.log(e.target)
+    e.preventDefault();
+    const comment_body = $(`#comment-field${e.target.id}`).val();
+    const postId = e.target.id 
+    if(comment_body){
+        const comment = await fetch(`/api/comments/${postId}`, {
+            method: 'POST',
+            body: JSON.stringify({ comment_body }),
+            headers: { 'content-type': 'application/json' }
+        });
+        if(comment.ok) {
+            await window.location.reload()
+        }else if(post.status(400)){
+            
         }else{
             console.log('failed')
         }
     }
 }
 
-async function handleComment(){
-    const commentBody = $('#comment-field');
-    const postId = $('#post-id'); //fix this
-    if(commentBody){
-        const post = await fetch('/api/posts/:id', {
-            method: 'POST',
-            body: JSON.stringify({ title, body }),
-            headers: { 'content-type': 'application/json' }
-        });
-    }
-}
 
-
-$('#submit-comment').click(handleComment);
+$('.submit-comment').click((e) => handleComment(e));
 $('#submit-post').click(handlePost)

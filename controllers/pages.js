@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Post, User } = require('../models');
+const { Post, User, Comments } = require('../models');
 
 router.get('/', async (req, res) => {
     const posts = await Post.findAll({
@@ -7,6 +7,16 @@ router.get('/', async (req, res) => {
             {
                 model: User,
                 attributes: ['name']
+            },
+            {
+                model: Comments,
+                attributes: ['comment_body', 'comment_time', 'user_id'],
+                include: [
+                    {
+                        model: User,
+                        attributes: ['name']
+                    }
+                ]
             }
         ]
     })
@@ -19,8 +29,31 @@ router.get('/', async (req, res) => {
     })
 });
 
-router.get('/dashboard', (req, res) => {
-    res.render('profile', )
+router.get('/dashboard/:id', async (req, res) => {
+    const profileData = await Post.findAll({ 
+        where: { user_id: req.params.id},
+        include: [
+            {
+                model: User,
+                attributes: ['name']
+            },
+            {
+                model: Comments,
+                attributes: ['comment_body', 'comment_time', 'user_id'],
+                include: [
+                    {
+                        model: User,
+                        attributes: ['name']
+                    }
+                ]
+            }
+        ]
+    })
+    const profile = profileData.map((element) => element.get({plain: true}))
+    res.render('profile', {
+        profile,
+        logged_In: req.session.logged_In
+    })
 })
 
 router.get('/login', (req, res) => res.render('login'));

@@ -19,3 +19,22 @@
     color:darkgray;
     font-size:.8rem;
 }
+
+.comment-section{
+    color: navy;
+    margin-left: 60px;
+    margin-right: 60px;
+}
+
+.comment-user{
+    font-size:.9rem;
+}
+.comment-time{
+    color:darkgray;
+    font-size:.8rem;
+}
+.error{
+    display: hidden;
+    color:crimson;
+    font-weight: bold;
+}

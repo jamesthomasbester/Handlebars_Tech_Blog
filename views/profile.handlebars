@@ -1,1 +1,27 @@
-<h1>test</h1>
+{{#if profile}}
+<h1>Your Posts</h1>
+{{#each profile}}
+<div class="card">
+  <h5 class="card-header">{{user.name}}</h5>
+  <p class="subtext">{{post_time}}</p>
+  <div class="card-body">
+    <h5 class="card-title">{{post_title}}</h5>
+    <p class="card-text">{{post_body}}</p>
+    {{#each comments}}
+    <div class="comment-section">
+      <a class="comment-user">{{user.name}}</a>
+      <p class="comment-body">{{comment_body}}</p>
+      <p class="comment-time">{{comment_time}}</p>
+    </div>
+    {{/each}}
+  </div>
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+</div>
+</div>
+  {{/each}}
+{{#else}}
+  <h1>Nothing to show</h1>
+  <p>go /home and make your first post</p>
+{{/else}}
+  {{/if}}

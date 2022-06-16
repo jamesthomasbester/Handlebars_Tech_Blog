@@ -1,13 +1,14 @@
 <div class="post-field">
   <div class="form-floating mb-3">
-    <input type="email" class="form-control" id="post-title" placeholder="name@example.com">
+    <input type="email" class="form-control" id="post-title" >
     <label for="floatingInput">Post Title</label>
   </div>
   <div class="form-floating">
-    <textarea class="form-control" placeholder="Leave a comment here" id="post-body" style="height: 100px"></textarea>
+    <textarea class="form-control" id="post-body" style="height: 100px"></textarea>
     <label for="floatingTextarea2">Post Content</label>
   </div>
   <button class="btn btn-outline-secondary comment" id="submit-post" type="button">Post</button>
+  <p class="error">Please login to make a post</p>
 </div>
 {{#each post}}
 <div class="card">
@@ -16,13 +17,22 @@
   <div class="card-body">
     <h5 class="card-title">{{post_title}}</h5>
     <p class="card-text">{{post_body}}</p>
-    
+    {{#each comments}}
+    {{log this}}
+    <div class="comment-section">
+      <a href="/dashboard/{{user_id}}" class="comment-user">{{user.name}}</a>
+      <p class="comment-body">{{comment_body}}</p>
+      <p class="comment-time">{{comment_time}}</p>
+    </div>
+    {{/each}}
   </div>
 <div class="input-group mb-3">
   <div class="input-group-prepend">
-    <button class="btn btn-outline-secondary comment" id="submit-comment" type="button">comment</button>
+    
+    <button class="btn btn-outline-secondary comment submit-comment" id="{{id}}" type="button">comment</button>
   </div>
-  <input type="text" id="comment-field" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
+  <input type="text" id="comment-field{{id}}" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
 </div>
+<p class="error">Please login to make a comment</p>
 </div>
   {{/each}}

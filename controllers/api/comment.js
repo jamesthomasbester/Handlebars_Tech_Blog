@@ -1,22 +1,22 @@
 const router = require('express').Router();
 const moment = require('moment');
-const { Post } = require('../../models')
+const { Post, Comments } = require('../../models')
 
 router.get('/', (req, res) =>{
     res.status(200).json('working')
 });
 
-router.post('/', async (req, res) => {
+router.post('/:id', async (req, res) => {
     if(req.session.logged_in){
         if(req.body){
             try{
-                const postData = Post.create({ 
-                    post_title: req.body.title,
-                    post_body: req.body.body,
+                const commentData = Comments.create({ 
+                    comment_body: req.body.comment_body,
+                    post_id: req.params.id,
                     user_id: req.session.user_id,
-                    post_time: moment().format('YYYY-MM-DD hh:mm:ss')
+                    comment_time: moment().format('YYYY-MM-DD hh:mm:ss')
                  })
-                res.status(200).json(postData);
+                res.status(200).json(commentData);
             }catch(err){
                 console.error(err);
             }
