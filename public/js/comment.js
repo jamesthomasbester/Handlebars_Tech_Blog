@@ -12,10 +12,12 @@ async function handlePost(){
 
         if(post.ok) {
             await window.location.reload()
-        }else if(post.status(400)){
-            
-        }
-        else{
+        }else if(post.status == 400){
+            $('#error').addClass('error');
+            setTimeout(async () => {
+                await $('#error').removeClass('error');
+            }, 2000);
+        }else{
             console.log('failed')
         }
     }
@@ -34,8 +36,11 @@ async function handleComment(e){
         });
         if(comment.ok) {
             await window.location.reload()
-        }else if(post.status(400)){
-            
+        }else if(comment.status == 400){
+            $('.error-message').addClass('error');
+            setTimeout(async () => {
+                await $('.error-message').removeClass('error');
+            }, 2000);
         }else{
             console.log('failed')
         }

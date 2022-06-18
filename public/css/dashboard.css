@@ -33,8 +33,12 @@
     color:darkgray;
     font-size:.8rem;
 }
+.error-message{
+    display:none;
+}
+
 .error{
-    display: hidden;
+    display:block;
     color:crimson;
     font-weight: bold;
 }
