@@ -7,7 +7,7 @@ router.get('/', (req, res) =>{
 });
 
 router.post('/', async (req, res) => {
-    if(req.session.logged_in){
+    if(req.session.logged_In){
         if(req.body){
             try{
                 const postData = Post.create({ 
