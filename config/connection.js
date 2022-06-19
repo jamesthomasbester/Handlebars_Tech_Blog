@@ -3,12 +3,12 @@ require('dotenv').config();
 
 let sequelize = new Sequelize(
     {
-        host: 'ec2-52-44-13-158.compute-1.amazonaws.com',
-        dialect: 'postgres',
-        username: 'kmfxrohjrzteyb',
-        password: '262143bab6173ffaa9b14bebf7010861bfbd881fbfcee538b1688170af8a9342',
-        database: 'd6h54uig36dchk',
-        port: 5432,
+        host: 'wb39lt71kvkgdmw0.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
+        dialect: 'mysql',
+        username: 'r9brd2hh2ccx77v7',
+        password: 'f7yw5n028ppph8t',
+        database: 'sfq7b796jwmef43l',
+        port: 3306,
         dialectOptions:{
             ssl: {
                 rejectUnauthorized: false
