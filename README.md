@@ -6,7 +6,9 @@ A simple website that works a little like a forum for users, allowing you to log
 
 ## Screenshots
 
-![Screenshot 2022-05-05 221622](https://user-images.githubusercontent.com/46641259/166921363-9f35784c-ce55-46c4-a1aa-4b8e29634a89.png)
+![tech blog](https://user-images.githubusercontent.com/46641259/174478090-edbd4071-ec82-4466-bdde-c9d4168d1324.png)
+![logon page](https://user-images.githubusercontent.com/46641259/174478093-ac7f8996-cd06-4dec-a3a1-c94c6ff0da85.png)
+
 
 
 ## Demo
@@ -16,6 +18,10 @@ https://handlebars-techblog.herokuapp.com/signup?
 signup here to test out make comments or posts for others to see.
 
 alternatively you can deploy this yourself at [Deployment](#deployment)
+
+
+
+https://user-images.githubusercontent.com/46641259/174478097-207cd162-9180-4407-92fe-febfa2a8ac01.mp4
 
 
 
