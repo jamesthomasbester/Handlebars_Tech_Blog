@@ -9,11 +9,6 @@ let sequelize = new Sequelize(
         password: 'f7yw5n028ppph8t',
         database: 'sfq7b796jwmef43l',
         port: 3306,
-        dialectOptions:{
-            ssl: {
-                rejectUnauthorized: false
-            }
-        }
     });
 
 module.exports = sequelize;
